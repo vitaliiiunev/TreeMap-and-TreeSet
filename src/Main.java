@@ -13,7 +13,16 @@ public class Main {
         people.add(new Person("Ирина", "Мамонтова",35));
 
         System.out.println(people);
-        Collections.sort(people, new PersonsNameLength());
+        Collections.sort(people, (Person o1, Person o2) ->
+        { if (o1.getSurname().length() < o2.getSurname().length()) {
+            return 1;
+        } else if (o1.getSurname().length() > o2.getSurname().length()) {
+            return -1;
+        } else if (o1.getAge() < o2.getAge()){
+            return 1;
+        }else {
+            return -1;
+        }});
         System.out.println(people);
     }
 }
